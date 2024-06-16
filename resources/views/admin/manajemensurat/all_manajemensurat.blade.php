@@ -11,7 +11,7 @@
             <div class="col-md-4" >
                 <div class="form-group row mt-1 mb-1">
                     <span>
-                        <a href="{{ route('add.surat_tugas') }}">
+                        <a href="{{ route('add.manajemensurat') }}">
                             <button type="button" class="btn btn-sm btn-primary btn-icon-text">
                                 Tambah {{$page['model']}}
                                 <i class="tf-icons bx bx-plus"></i>
@@ -20,19 +20,7 @@
                     </span>
                 </div>
             </div>
-            <div class="col-md-4" >
-                {!! Form::open(['route' => 'all.surat_tugas', 'method' => 'GET']) !!}
-                <div class="form-group row mt-1 mb-1">
-                    <div class="input-group">
-
-                        <input type="text" name="q" value="{{ request('q') }}" class="form-control form-control-sm" placeholder="Masukkan Kata Kunci" aria-label="Recipient's username" aria-describedby="button-addon2" />
-                        <button class="btn btn-outline-primary" type="submit" id="button-addon2">Filter</button>
-
-                    </div>
-                </div>
-                {!! Form::close() !!}
-            </div>
-            <div class="col-md-4" >
+            <div class="col-md-8" >
                 {!! Form::open(['route' => 'all.surat_tugas', 'method' => 'GET']) !!}
                 <div class="form-group row  mt-1 mb-1">
                     <div class="input-group">
@@ -54,19 +42,21 @@
                     <thead>
                         <tr>
                             <th>
-                                Tanggal
+                                Tanggal Kegiatan
                             </th>
                             <th>
-                                Nama Pegawai
+                                Perihal
                             </th>
                             
                             <th>
-                                Keterangan
+                                Pengirim
                             </th>
                             
                             <th>
-                                Status
+                                Disposisi Ke
                             </th>
+                            <th>Lampiran</th>
+                            <th>status</th>
                             <th>
                                 Action
                             </th>
@@ -76,17 +66,20 @@
                         @foreach($data as $item)
                         <tr>
                             <td>
-                                {{$item->tanggal}}
+                            {{$item->tanggal_surat}}
                             </td>
                             <td class="py-1">
-                                
-                                {{$item->user->name}}  
-                                <!-- <img src="../../images/faces/face1.jpg" alt="image" /> -->
+                                {{$item->perihal}}  
                             </td>
-                            
+                            <td>
+                            {{$item->pengirim}}
+                            </td>
+                            <td>
+                            {{ $item->disposisi_ke !== '' ? $item->user->name : 'Camat Palengaan'}}
+                            </td>
                             <td>
 
-                                <span>{{$item->keterangan}}</span> 
+                                <span><a target="_blank" href="{{ asset('uploads/admin_images/surat_masuk/') }}/{{$item->lampiran}}">Lihat Lampiran</a></span> 
                             </td>
                             <td>
                                 <span class="badge {{ ($item->status === 'verified') ? 'bg-label-primary' : 'bg-label-warning' }} me-1">
@@ -94,24 +87,24 @@
                                 </span>
                             </td>
                             <td>
-                                <a href="{{ route('edit.surat_tugas', $item->id) }}">
+                                <a href="{{ route('edit.manajemensurat', $item->id) }}">
                                     <button type="button" class="btn  btn-sm btn-dark btn-icon-text">
 
                                         <i class="tf-icons bx bx-pencil"></i> Edit
                                     </button>
                                 </a>
 
-                                <a href="{{ route('delete.surat_tugas', $item->id) }}" id="delete">
+                                <a href="{{ route('delete.manajemensurat', $item->id) }}" id="delete">
                                     <button type="submit" id="delete" class="btn btn-sm btn-success btn-icon-text">
                                         <i class="tf-icons bx bx-trash"></i>Hapus
                                     </button>
                                 </a>
 
-                                <a target="_blank" href="{{ route('cetak.surat_tugas', $item->id) }}">
+                                <!-- <a target="_blank" href="{{ route('cetak.surat_tugas', $item->id) }}">
                                     <button type="button" class="btn btn-sm btn-primary btn-icon-text">
                                         <i class="tf-icons bx bx-printer"></i> Cetak
                                     </button>
-                                </a>
+                                </a> -->
 
 
                             </td>

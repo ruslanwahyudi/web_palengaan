@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Models\Settings;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Yajra\DataTables\Html\Builder;
 
@@ -30,5 +32,14 @@ class AppServiceProvider extends ServiceProvider
         });
         Paginator::useBootstrap();
         Builder::useVite();
+        // DB::listen(function($query) {
+        //     Log::info(
+        //         $query->sql,
+        //         [
+        //             'bindings' => $query->bindings,
+        //             'time' => $query->time
+        //         ]
+        //     );
+        // });
     }
 }

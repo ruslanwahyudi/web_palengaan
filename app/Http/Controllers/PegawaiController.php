@@ -9,6 +9,7 @@ use App\DataTables\UserDataTable;
 use App\DataTables\UsersDataTable;
 use App\Http\Requests\Pegawai\StorePegawaiRequest;
 use App\Http\Requests\Pegawai\UpdatePegawaiRequest;
+use App\Models\Organisai;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -48,6 +49,8 @@ class PegawaiController extends Controller
             'route' => ['store.pegawai'],
             'button' => 'Simpan',
             'role' => Role::all(),
+            'organisasi' => Organisai::all(),
+            'user' => User::all(),
         ];
 
         return view('admin.pegawai.form_pegawai', $data);
@@ -132,7 +135,9 @@ class PegawaiController extends Controller
             'model' => User::findOrFail($id),
             'method' => 'POST',
             'route' => ['update.pegawai', $id],
-            'button' => 'Update'
+            'button' => 'Update',
+            'organisasi' => Organisai::all(),
+            'user' => User::all(),
         ];
         return view('admin.pegawai.form_pegawai', $data);
 

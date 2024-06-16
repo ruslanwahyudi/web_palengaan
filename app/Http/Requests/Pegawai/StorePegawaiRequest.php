@@ -30,7 +30,9 @@ class StorePegawaiRequest extends FormRequest
             'nik' =>'nullable',
             'golongan' => 'nullable',
             'jabatan' => 'nullable',
-            'role' => 'required'
+            'role' => 'required',
+            'parent_id' => 'nullable',
+            'org_id' => 'required'
         ];
     }
 

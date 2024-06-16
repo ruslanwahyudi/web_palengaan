@@ -33,7 +33,9 @@ class UpdatePegawaiRequest extends FormRequest
             'golongan' => 'nullable',
             'jabatan' => 'nullable',
             'password' => 'nullable',
-            'photo' => 'nullable'
+            'photo' => 'nullable',
+            'parent_id' => 'nullable',
+            'org_id' => 'required'
         ];
     }
     protected function prepareForValidation()

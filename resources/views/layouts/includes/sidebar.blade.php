@@ -48,16 +48,16 @@
               </ul>
             </li>
 
-            <li class="menu-item {{ Route::is('*.pegawai') || Route::is('*.surat_tugas') ? 'active open':'' }}">
+            <li class="menu-item {{ Route::is('*.manajemensurat') || Route::is('*.manajemensurat') ? 'active open':'' }}">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div data-i18n="Layouts">Manajemen Surat</div>
               </a>
 
               <ul class="menu-sub">
-                <li class="menu-item {{ Route::is('*.pegawai') ? 'active':'' }}">
-                  <a href="{{ route('daftar.pegawai') }}" class="menu-link">
-                    <div data-i18n="Without menu">Surat Masuk</div>
+                <li class="menu-item {{ Route::is('*.manajemensurat') ? 'active':'' }}">
+                  <a href="{{ route('all.manajemensurat') }}" class="menu-link">
+                    <div data-i18n="Without menu">Surat Masuk/Keluar</div>
                   </a>
                 </li>
               </ul>

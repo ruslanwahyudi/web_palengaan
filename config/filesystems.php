@@ -63,6 +63,11 @@ return [
             'driver' => 'local',
             'root'   => public_path() . '/uploads/admin_images/surat_tugas/',
         ],
+
+        'public_upload_suratmasuk' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/uploads/admin_images/surat_masuk/',
+        ],
         
         'public_settings' => [
             'driver' => 'local',

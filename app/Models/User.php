@@ -49,7 +49,9 @@ class User extends Authenticatable
         'jenis_pegawai',
         'jabatan',
         'role',
-        'photo'
+        'photo',
+        'org_id',
+        'parent_id'
     ];
 
     /**

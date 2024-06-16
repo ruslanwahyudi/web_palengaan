@@ -193,17 +193,21 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Password</label>
+                                <label class="col-sm-3 col-form-label">Organisasi</label>
                                 <div class="col-sm-9">
-                                    <input type="password" name="password" class="form-control form-control-sm
-                                        @error('password') is-invalid @enderror" id="password" autocomplete="new-password" placeholder="Password">
-                                    @error('password')
+                                    <select class="form-select form-select-sm @error('org_id') is-invalid @enderror select2" name="org_id" id="org_id">
+                                        <option></option>
+                                        @foreach($organisasi as $organisasiItem)
+                                            <option value="{{ $organisasiItem->id }}" {{ $model->org_id == $organisasiItem->id ? 'selected' : ''}} >{{ $organisasiItem->name_organisasi }}</option>
+                                        @endforeach
+                                        
+                                    </select>
+                                    @error('org_id')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Level User</label>
@@ -221,7 +225,38 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Data Atasan</label>
+                                <div class="col-sm-9">
+                                    <select class="form-select form-select-sm @error('parent_id') is-invalid @enderror select2" name="parent_id" id="parent_id">
+                                        <option></option>
+                                        @foreach($user as $userItem)
+                                            <option value="{{ $userItem->id }}" {{ $model->parent_id == $userItem->id ? 'selected' : ''}} >{{ $userItem->name }}</option>
+                                        @endforeach
+                                        
+                                    </select>
+                                    @error('parent_id')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Password</label>
+                                <div class="col-sm-9">
+                                    <input type="password" name="password" class="form-control form-control-sm
+                                        @error('password') is-invalid @enderror" id="password" autocomplete="new-password" placeholder="Password">
+                                    @error('password')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="divider divider-primary">

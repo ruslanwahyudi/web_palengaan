@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\LayananRekomnikahController;
 use App\Http\Controllers\LayananSktmController;
+use App\Http\Controllers\ManajemensuratController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\ProfileController;
@@ -158,7 +159,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
         // Route::get('/detail/permission/{id}', 'detailPermission')->name('detail.permission');
     });
 
-    // pages Static
+    // surat tugas / dinas luar
     Route::controller(SurattugasController::class)->group(function(){
         Route::get('/all/surat_tugas/', 'allSurattugas')->name('all.surat_tugas');
         Route::get('/add/surat_tugas', 'addSurattugas')->name('add.surat_tugas');
@@ -167,6 +168,16 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::post('/update/surat_tugas/{id}/', 'updateSurattugas')->name('update.surat_tugas');
         Route::get('/delete/surat_tugas/{id}', 'deleteSurattugas')->name('delete.surat_tugas');
         Route::get('/cetak/surat_tugas/{id}', 'cetakSurattugas')->name('cetak.surat_tugas');
+    });
+
+    // manajemen surat
+    Route::controller(ManajemensuratController::class)->group(function () {
+        Route::get('/all/manajemensurat', 'allManejemensurat')->name('all.manajemensurat');
+        Route::get('/add/manajemensurat', 'addManejemensurat')->name('add.manajemensurat');
+        Route::post('/store/manajemensurat', 'storeManejemensurat')->name('store.manajemensurat');
+        Route::get('/edit/manajemensurat/{id}/', 'editManejemensurat')->name('edit.manajemensurat');
+        Route::post('/update/manajemensurat/{id}/', 'updateManejemensurat')->name('update.manajemensurat');
+        Route::get('/delete/manajemensurat/{id}', 'deleteManejemensurat')->name('delete.manajemensurat');
     });
 
     // Layanan SKTM
