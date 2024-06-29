@@ -50,7 +50,7 @@
                                             <i class="flaticon-calendar"></i>
                                         </div>
                                         <div class="top-bar-text">
-                                            <h3>Jam Pelayanan</h3>
+                                            <h3>Jam Layanan</h3>
                                             <p style="font-size: 10px;">Senin-Jumat, 7:00-15:00</p>
                                         </div>
                                     </div>
