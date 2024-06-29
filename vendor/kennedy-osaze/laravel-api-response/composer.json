@@ -1,0 +1,55 @@
+{
+    "name": "kennedy-osaze/laravel-api-response",
+    "description": "Renders consistent HTTP JSON responses for API-based projects",
+    "keywords": [
+        "laravel",
+        "api",
+        "json",
+        "response"
+    ],
+    "homepage": "https://github.com/kennedy-osaze/laravel-api-response",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kennedy Osaze",
+            "email": "me.osaze@gmail.com",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "illuminate/contracts": "^10.0",
+        "illuminate/translation": "^10.0"
+    },
+    "require-dev": {
+        "kennedy-osaze/php-cs-fixer-config": "^2.0.1",
+        "nunomaduro/collision": "^7.0",
+        "orchestra/testbench": "^8.0",
+        "phpunit/phpunit": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "KennedyOsaze\\LaravelApiResponse\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "KennedyOsaze\\LaravelApiResponse\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/testbench package:test"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "KennedyOsaze\\LaravelApiResponse\\LaravelApiResponseServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
