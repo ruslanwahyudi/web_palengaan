@@ -10,16 +10,11 @@ class WebController extends Controller
 {
     //
     public function index() {
-        $article = Article::with('category')->latest()->take(3)->get();
+        $article = Article::with('category')->latest()->take(4)->get();
         // dd($article);
-        // foreach ($article as $key => $value) {
-        //     echo $value->title;
-        // }
-
+        
         return view('frontend.pages.fo_home', compact('article'));
-        // echo "kaka";
-        // dd($article);
-        // return view('index', compact('article'));
+        
     }
 
     public function dokumenPerencanaan(){

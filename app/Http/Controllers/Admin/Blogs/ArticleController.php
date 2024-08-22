@@ -66,14 +66,23 @@ class ArticleController extends Controller
         }
         $article = Article::create($storeArticleRequest);
 
-        // store to article_tag table
-        // $article_tag = new Articletag();
-        // $article_tag->article_id = $article->id;
-        // $article_tag->tag_id = $request->tag_id;
-        Articletag::create([
-            'article_id' => $article->id,
-            'tag_id' => $request->tag_id
-        ]);
+        // Articletag::create([
+        //     'article_id' => $article->id,
+        //     'tag_id' => $request->tag_id
+        // ]);
+
+        // insert all tag based article id
+        // Articletag::where('article_id', $id)->delete();
+        foreach($request->tag as $key => $value) {
+            $tagName = $value;
+            $tagId = $key;
+            
+            // reinsert tag
+            Articletag::create([
+                'article_id' => $article->id,
+                'tag_id' => $value
+            ]);
+        }
 
         if($article){
             return response()->json([

@@ -1,7 +1,7 @@
 <table width="95%" border="0" cellspacing="0" cellpadding="5" align="center">
     <tr>
         <td colspan="3">
-            <img width="100%" src="https://palengaan.pamekasankab.go.id/kop_kec.png">
+            <img width="50%" src="https://fs3.fastupload.io/cache/plugins/filepreviewer/388120/e3fe6338d0fad44a3b1408a93669472ad737d1586efd562d3295fa5e5773e845/280x280_middle.jpg">
             <!-- <img width="80" src="{{ asset('') }}/uploads/faveicon_202405080619PEMKAB TRANSPARANT.png"> -->
         </td>
         

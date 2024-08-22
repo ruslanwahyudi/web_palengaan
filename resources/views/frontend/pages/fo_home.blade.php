@@ -8,9 +8,12 @@
         <li data-target="#carousel" data-slide-to="2"></li>
         <li data-target="#carousel" data-slide-to="3"></li>
     </ol>
+    
     <div class="carousel-inner">
-        @foreach ($article as $articleItem)
-            <div class="carousel-item active">
+        
+        @foreach ($article as $key => $articleItem)
+
+            <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
                 <img src="{{ (!empty($articleItem->image)) ? url('uploads/admin_images/articles/'.$articleItem->image) : url('uploads/no_image.jpg') }}" alt="Carousel Image">
                 <div class="carousel-caption">
                     <p class="animated fadeInRight">{{ $articleItem->category->name }}</p>
@@ -20,10 +23,7 @@
             </div>
         @endforeach
         
-
-        
     </div>
-
     <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
